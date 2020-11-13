@@ -1,0 +1,247 @@
+using System;
+					
+public class EXAMENPROGRAMACION
+{
+	public static void Main()
+	{
+		int r=1;
+		int i;
+		int numi;
+		int numf;
+		string opc="si"; 
+		string NomreP="";
+		double Producto=0;
+		double cambio=0;
+		double total=0;
+		double pago=0;
+		int cantB500=0;
+		int cantB200=0;
+		int cantB100=0;
+		int cantB50=0;
+		int cantB20=0;
+		int cantM10=0;
+		int cantM5=0;
+		int cantM2=0;
+		int cantM1=0;
+		int cantM50c=0;
+		int cantM10c=0;
+		
+		while(r==1||r==2)
+		{
+		do
+		{
+		Console.WriteLine("Bienvenido al menu de opciones");
+		Console.WriteLine("Escoja el número de problema que desee: 1 o 2");
+		Console.WriteLine("En caso de salir asigne el número 3");
+		r=int.Parse(Console.ReadLine());
+		if(r>3||r<1)
+		{
+			Console.WriteLine("El número indicado no corresponde a ninguna opción");
+			Console.WriteLine("Vuelva a introducirlo");
+		}
+		}while(r<1||r>3);
+		Console.Clear();
+		switch(r)
+		{
+			case 1:
+				Console.WriteLine("El problema que escogio es:1");
+				Console.WriteLine("Inserta el número de inicio");
+				numi=int.Parse(Console.ReadLine());
+				numf=numi+35*3;
+				Console.WriteLine("Secuencia:");
+				for(i=numi;i<numf;i++)
+				{
+					if (i%3>0&i%5>0&i%7>0)
+					{
+						Console.WriteLine(i);
+					}
+					else
+					{
+						if(i%3==0&i%5>0&i%7>0)
+						{
+							Console.WriteLine("!Somos¡");
+						}
+						if(i%5==0&i%3>0&i%7>0)
+						{
+							Console.WriteLine("!Lobos¡");
+						}
+						if(i%7==0&i%3>0&i%5>0)
+						{
+							Console.WriteLine("!Rojos¡");
+						}
+						if(i%3==0&i%5==0&i%7>0)
+						{
+							Console.WriteLine("!Somos Lobos¡");
+						}
+						if(i%3==0&i%7==0&i%5>0)
+						{
+							Console.WriteLine("!Somos Rojos¡");
+						}	
+						if(i%5==0&i%7==0&i%3>0)
+						{
+							Console.WriteLine("!Lobos Rojos¡");
+						}	
+						if(i%3==0&i%5==0&i%7==0)
+						{
+							Console.WriteLine("!Somos Lobos Rojos¡");
+						}	
+					}
+				}
+				break;
+			case 2:
+				Console.WriteLine("El problema que escogio es:2");
+				while(opc=="si"||opc=="Si")
+				{
+					do
+					{
+					Console.WriteLine("Ingrese Nombre Producto.");
+					NomreP=Console.ReadLine();
+					Console.WriteLine("Ingrese Precio Producto.");
+					Producto=double.Parse(Console.ReadLine());	
+					total=total+Producto;
+					if(Producto<=0)
+					{
+						Console.WriteLine("EL número que ingreso es negativo o está en ceros");
+					}
+					}while(Producto<0);
+					Console.WriteLine("Otro Producto Si o No\n");
+					opc=Console.ReadLine();
+				}
+				Console.Clear();
+				Console.WriteLine("Total a pagar:"+total);
+				Console.WriteLine("¿Cuánto pagas?");
+				pago=double.Parse(Console.ReadLine());
+				while(pago<total)
+				{
+					pago=pago-total;
+					pago=Math.Abs(pago);
+					Console.WriteLine("Faltan "+pago+" pesos");
+					Console.WriteLine("Pague con una cantidad mayor o igual al total de la compra");
+					Console.WriteLine("¿Cuánto pagas?");
+					pago=double.Parse(Console.ReadLine());
+				}
+				Console.Clear();
+				Console.WriteLine("Total a pagar:"+total);
+				Console.WriteLine("Se pago:"+pago);
+				cambio=total-pago;
+				cambio=Math.Abs(cambio);
+				cambio=Math.Round(cambio,2);
+				Console.WriteLine("El cambio es: $"+cambio+" pesos");
+				Console.WriteLine("Distribuido en:");
+				if(cambio>500||cambio==500)
+				{	 
+					while(cambio>500||cambio==500)
+					{
+						cantB500++;
+						cambio=cambio-500;
+					}
+					Console.WriteLine(""+cantB500+" billetes de $500");	
+				}
+				if(cambio>200||cambio==200)
+				{
+					while(cambio>200||cambio==200)
+					{
+						cambio=cambio-200;
+						cantB200++;
+					}
+					Console.WriteLine(""+cantB200+" billetes de $200");
+				}
+				if(cambio>100||cambio==100)
+				{
+					while(cambio>100||cambio==100)
+					{
+						cambio=cambio-100;
+						cantB100++;
+					}
+					Console.WriteLine(""+cantB100+" billetes de $100");
+				}
+				if(cambio>50||cambio==50)
+				{
+					while(cambio>50||cambio==50)
+					{
+						cambio=cambio-50;
+						cantB50++;
+					}
+					Console.WriteLine(""+cantB50+" billetes de $50");
+				}
+				if(cambio>20||cambio==20)
+				{
+					while(cambio>20||cambio==20)
+					{
+						cambio=cambio-20;
+						cantB20++;
+					}
+					Console.WriteLine(""+cantB20+" billetes de $20");
+				}
+				if(cambio>10||cambio==10)
+				{
+					while(cambio>10||cambio==10)
+					{
+						cambio=cambio-10;
+						cantM10++;
+					}
+					Console.WriteLine(""+cantM10+" Monedas de  $10");
+				}
+				if(cambio>5||cambio==5)
+				{
+					while(cambio>5||cambio==5)
+					{
+						cambio=cambio-5;
+						cantM5++;
+					}
+					Console.WriteLine(""+cantM5+" Monedas de   $5");
+				}
+				if(cambio>2||cambio==2)
+				{
+					while(cambio>2||cambio==2)
+					{
+						cambio=cambio-2;
+						cantM2++;
+					}
+					Console.WriteLine(""+cantM2+" Monedas de   $2");
+				}
+				if(cambio>1||cambio==1)
+				{
+					while(cambio>1||cambio==1)
+					{
+						cambio=cambio-1;
+						cantM1++;
+					}
+					Console.WriteLine(""+cantM1+" Monedas de   $1");
+				}
+				if(cambio>0.50||cambio==0.50)
+				{
+					while(cambio>0.50||cambio==0.50)
+					{
+						cambio=cambio-.50;
+						cantM50c++;
+					}
+					Console.WriteLine(""+cantM50c+" Monedas de  $50 centavos");
+				}
+				if(cambio>0.10||cambio==0.10)
+				{
+					while(cambio>0.10||cambio==0.10)
+					{
+						cambio=cambio-.10;
+						cantM10c++;
+					}
+					Console.WriteLine(""+cantM10c+" Monedas de  $10 centavos");
+				}
+				break;
+			}
+			
+		}
+		if(r==3)
+		{
+			Console.Clear();
+			Console.WriteLine("Esperamos que el programa haya sido de utilidad");
+			Console.WriteLine("Hasta luego");
+			Console.WriteLine("Equipo 4");
+			Console.WriteLine("Hernandez Salado Daniela");
+			Console.WriteLine("Martínez Bahena Itzel Laura");
+			Console.WriteLine("Sánchez Avila Natalia Lisbeth");
+			Console.WriteLine("Serrano Marino Marcos Alejandro");
+			Console.WriteLine("IIN 4B");
+		}
+	}
+}
