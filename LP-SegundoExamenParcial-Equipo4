@@ -41,6 +41,7 @@ public class EXAMENPROGRAMACION
 		}
 		}while(r<1||r>3);
 		Console.Clear();
+		do{
 		switch(r)
 		{
 			case 1:
@@ -89,9 +90,13 @@ public class EXAMENPROGRAMACION
 				}
 				break;
 			case 2:
+				
+				do{  // se agrego el ciclo para que al volver al consultar el problema 2 volviera a repetir todo
 				Console.WriteLine("El problema que escogio es:2");
-				while(opc=="si"||opc=="Si")
+				total=0; // Se inicializo la varibale para que no se quede guardada con el anterior resultado
+				do
 				{
+					
 					do
 					{
 					Console.WriteLine("Ingrese Nombre Producto.");
@@ -106,13 +111,14 @@ public class EXAMENPROGRAMACION
 					}while(Producto<0);
 					Console.WriteLine("Otro Producto Si o No\n");
 					opc=Console.ReadLine();
-				}
-				Console.Clear();
+				}while(opc=="si"||opc=="Si");
 				Console.WriteLine("Total a pagar:"+total);
 				Console.WriteLine("¿Cuánto pagas?");
 				pago=double.Parse(Console.ReadLine());
+				}while(r==3||r==1);
 				while(pago<total)
 				{
+					
 					pago=pago-total;
 					pago=Math.Abs(pago);
 					Console.WriteLine("Faltan "+pago+" pesos");
@@ -128,6 +134,17 @@ public class EXAMENPROGRAMACION
 				cambio=Math.Round(cambio,2);
 				Console.WriteLine("El cambio es: $"+cambio+" pesos");
 				Console.WriteLine("Distribuido en:");
+		cantB500=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantB200=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantB100=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantB50=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantB20=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantM10=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantM5=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantM2=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantM1=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantM50c=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
+		cantM10c=0;// Se inicializo la varibale para que no se quede guardada con el anterior resultado
 				if(cambio>500||cambio==500)
 				{	 
 					while(cambio>500||cambio==500)
@@ -218,19 +235,21 @@ public class EXAMENPROGRAMACION
 					}
 					Console.WriteLine(""+cantM50c+" Monedas de  $50 centavos");
 				}
-				if(cambio>0.10||cambio==0.10)
+				if(cambio>0||cambio==0.10)//Cambio durante la clase para que diera el resultado correcto antes:(cambio>10||cambio==10)
 				{
-					while(cambio>0.10||cambio==0.10)
+					while(cambio>0||cambio==0.10)
 					{
 						cambio=cambio-.10;
 						cantM10c++;
 					}
 					Console.WriteLine(""+cantM10c+" Monedas de  $10 centavos");
 				}
+			
 				break;
 			}
-			
+		}while(r==3);
 		}
+		
 		if(r==3)
 		{
 			Console.Clear();
